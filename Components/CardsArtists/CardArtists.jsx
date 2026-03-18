@@ -1,13 +1,21 @@
 import "./CardArtists.css"
+import artists from "../../data/artists.js"
 
-function CardArtists({nome, idade, Qtdalbuns, qtdGrammys}) {
+function CardArtists() {
   return (
+    <>
     <div className="artists">
-            <h2>Olá {nome}</h2>
-            <p>Você tem {idade} anos</p>
-            <p>Você lançou {Qtdalbuns} albuns</p>
-            <p>Você venceu {qtdGrammys} grammys</p>
+        {artists.map((artist, index) =>{
+        return (
+            <ul key={index}>
+                <li>Country {artist.country}</li>
+                <li>Artist: {artist.name}</li>
+                <li>Genre: {artist.genre}</li>
+            </ul>
+            )
+        })}
     </div>
+    </>
   )
 }
 
