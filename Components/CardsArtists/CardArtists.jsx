@@ -3,26 +3,28 @@ import artistsOrigin from "../../data/artists.js"
 import { useState } from "react"
 
 function CardArtists() {
-  const [country, setCountry] = useState("");
+  const [grammy, setGrammy] = useState("");
   const [name, setName] = useState("");
   const [genre, setGenre] = useState("");
   const [erro, setErro] = useState("");
   const [artists, setArtists] = useState([]);
 
   function criaArtista() {
- if (!isNaN(country) || !isNaN(name) || isNaN(genre)) {
-  setErro("DIGITOU NÚMERO");
+if (
+  /\d/.test(name) ||
+  /\d/.test(genre)
+) {
+  setErro("Não use números!");
   return;
 }
-
-    if (!country || !name || !genre) {
+    if (!grammy || !name || !genre) {
       setErro("Preencha tudo!");
       return;
     }
 
     const novoArtista = {
       id: Date.now(),
-      country,
+      grammy,
       name,
       genre
     };
@@ -30,7 +32,7 @@ function CardArtists() {
     setArtists([...artists, novoArtista]);
 
     // limpa os inputs
-    setCountry("");
+    setGrammy("");
     setName("");
     setGenre("");
     setErro("");
@@ -41,9 +43,9 @@ function CardArtists() {
     <div>
       <input
         type="text"
-        placeholder="País"
-        value={country}
-        onChange={(e) => setCountry(e.target.value)}
+        placeholder="Grammys"
+        value={grammy}
+        onChange={(e) => setGrammy(e.target.value)}
       />
 
       <input
@@ -66,7 +68,7 @@ function CardArtists() {
 
       {artists.map((artist) => (
         <ul key={artist.id}>
-            <li>Country: {artist.country}</li>
+            <li>grammy: {artist.grammy}</li>
             <li>Name: {artist.name}</li>
             <li>Genre: {artist.genre}</li>
         </ul>
