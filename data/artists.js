@@ -3,19 +3,19 @@ const artists = [
     id: 1,
     name: "Drake",
     genre: "Rap",
-    country: "Canadá",
+    Grammys: 5,
   },
   {
     id: 2,
     name: "Travis Scott",
     genre: "Rap",
-    country: "EUA",
+    Grammys: 0,
   },
   {
     id: 3,
     name: "The Weeknd",
     genre: "R&B",
-    country: "Canadá",
+    Grammys: 4,
   }
 ];
 
